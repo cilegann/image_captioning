@@ -1,0 +1,11 @@
+coco
+file
+data
+*.h5
+*.jpg
+*.JPEG
+*.png
+*.jpeg
+*.JPG
+*.gif
+*.txt
