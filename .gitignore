@@ -2,6 +2,7 @@ coco
 file
 data
 *.h5
+*.pkl
 *.jpg
 *.JPEG
 *.png
