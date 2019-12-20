@@ -185,7 +185,8 @@ img_input=Input (shape=(224,224,3,) )
 vgg = VGG16(weights='imagenet')
 vgg.layers.pop()
 vggmodel=Model(inputs=vgg.inputs,outputs=vgg.layers[-1].output)
-
+for i in range(len(vggmodel.layers)):
+    vggmodel.layers[i].trainable = False
 
 encode_dense=Dense( latent_dim, activation='relu' )( vggmodel(img_input) )
 encode_dense=RepeatVector( seq_len+2 )( encode_dense )
@@ -231,7 +232,8 @@ try:
         callbacks=[cbckpt]
     )
 except KeyboardInterrupt:
-    model.save_weights('./vgg_tune_keyboardInterrupt_saved_weight.h5')
+    pass
+    # model.save_weights('./vgg_tune_keyboardInterrupt_saved_weight.h5')
 
 
 # In[17]:
